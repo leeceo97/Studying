@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/nomalize.css" />
+  <link rel="stylesheet" href="/static/sytle.css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet" />
+  <title>Studying:공부를 하다</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <img class="logo" src="/static/img/logo.png" alt="Studying">
+      <nav class="nav">
+        <ul class="list">
+          <li class="list-item"><a href="#">대학생</a></li>
+          <li class="list-item"><a href="#">실무자</a></li>
+          <li class="list-item"><a href="#">나의 스터디</a></li>
+          <li class="list-item"><a href="#">로그인</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="main">
+    <div class="hero-section">
+      <div class="container">
+        <ul class="list">
+          <li class="list-item2"><a href="#">전체</a></li>
+          <li class="list-item2"><a href="#">프로그래밍</a></li>
+          <li class="list-item2"><a href="#">자격증</a></li>
+          <li class="list-item2"><a href="#">언어</a></li>
+          <li class="list-item2"><a href="#">기타</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+{% block contents %}
+{% endblock %}
+  <footer class="footer">
+    <div class="container">
+      <p class="copyright">
+        &copy; 2005-2019
+        <a href="https://www.djangoproject.com/foundation/">
+          Django Software Foundation</a>
+        and individual contributors. Django is a
+        <a href="https://www.djangoproject.com/trademarks/">registered trademark</a>
+        of the Django Software Foundation.
+      </p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
