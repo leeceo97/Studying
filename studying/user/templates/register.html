@@ -2,24 +2,23 @@
 
 {% block contents %}
 <div class="login">
-  <div class="login-header">
-    <h1>Studying</h1>
-    <h4>Register</h4>
-  </div>
-  <div class="login-form">
-    <form method="POST" action=".">
-      {% csrf_token %}
-      {% for field in form %}
-      <h3>{{ field.label }}</h3>
-      <input type="{{ field.field.widget.input_type }}" id="{{ fiedl.id_for_lable }}" placeholder="{{ field.label }}"
-        name="{{ field.name }}">
-      <br>
-      {% if field.errors %}
-      <span style="color:red">{{ field.errors }}</span>
-      {% endif %}
-      {% endfor %}
-      <button type="submit" class="login-button">회원가입</button>
-    </form>
-  </div>
+    <div class="login-header">
+        <img class="logo" src="/static/imges/logo.png" alt="Studying">
+    </div>
+    <div class="login-form">
+        <form method="POST" action=".">
+            {% csrf_token %}
+            {% for field in form %}
+            <h3>{{ field.label }}</h3>
+            <input type="{{ field.field.widget.input_type }}" id="{{ fiedl.id_for_lable }}"
+                placeholder="{{ field.label }}" name="{{ field.name }}">
+            <br>
+            {% if field.errors %}
+            <span style="color:red">{{ field.errors }}</span>
+            {% endif %}
+            {% endfor %}
+            <button type="submit" class="login-button">회원가입</button>
+        </form>
+    </div>
 </div>
 {% endblock %}
