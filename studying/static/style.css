@@ -96,6 +96,11 @@ a {
   padding: 20px 50px;
 }
 
+/* LOGIN */
+.login {
+  height: 72px;
+  padding: 15px 0 4px;
+}
 /* FOOTER */
 .footer {
   background: #65ff7b;
