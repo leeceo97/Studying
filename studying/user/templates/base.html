@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,8 @@
   <link rel="stylesheet" href="/static/nomalize.css" />
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet" />
   <title>Studying:공부를 하다</title>
+  {% block header %}
+  {% endblock %}
 </head>
 
 <body>
@@ -37,8 +40,8 @@
       </div>
     </div>
   </main>
-{% block contents %}
-{% endblock %}
+  {% block contents %}
+  {% endblock %}
   <footer class="footer">
     <div class="container">
       <p class="copyright">

@@ -10,7 +10,6 @@ class RegisterForm(forms.Form):
         },
         max_length=32, label="사용자 이름"
     )
-
     email = forms.EmailField(
         error_messages={
             'required': '이메일을 입력해주세요.'
