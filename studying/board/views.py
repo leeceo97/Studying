@@ -24,15 +24,15 @@ def board_write(request):
         form = BoardForm(request.POST)
         if form.is_valid():
             user_id = request.session.get('user')
-            fcuser = Fcuser.objects.get(pk=user_id)
+            user = User.objects.get(pk=user_id)
 
             board = Board()
             board.title = form.cleaned_data['title']
             board.contents = form.cleaned_data['contents']
-            board.writer = fcuser
+            board.writer = user
             board.save()
 
-            return redirect('/board/list/')
+            return redirect('')
 
     else:
         form = BoardForm()
