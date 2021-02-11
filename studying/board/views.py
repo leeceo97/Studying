@@ -18,7 +18,7 @@ def board_detail(request, pk):
 
 def board_write(request):
     if not request.session.get('user'):
-        return redirect('/fcuser/login/')
+        return redirect('/user/login/')
 
     if request.method == 'POST':
         form = BoardForm(request.POST)
@@ -32,7 +32,7 @@ def board_write(request):
             board.writer = user
             board.save()
 
-            return redirect('')
+            return redirect('/board/list/')
 
     else:
         form = BoardForm()
