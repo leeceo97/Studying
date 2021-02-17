@@ -12,3 +12,9 @@ class BoardForm(forms.Form):
             'required': '내용을 입력해주세요.'
         },
         widget=forms.Textarea, label="내용")
+    image = forms.ImageField(
+        error_messages={
+            'required': '이미지를 넣어주세요.'
+        },
+        label="이미지"
+    )

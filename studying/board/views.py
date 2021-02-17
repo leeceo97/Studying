@@ -29,6 +29,7 @@ def board_write(request):
             board = Board()
             board.title = form.cleaned_data['title']
             board.contents = form.cleaned_data['contents']
+            board.image = form.cleaned_data['image']
             board.writer = user
             board.save()
 
@@ -42,7 +43,7 @@ def board_write(request):
 def board_list(request):
     all_boards = Board.objects.all().order_by('-id')
     page = int(request.GET.get('p', 1))
-    paginator = Paginator(all_boards, 2)
+    paginator = Paginator(all_boards, 10)
 
     boards = paginator.get_page(page)
     return render(request, 'board_list.html', {'boards': boards})

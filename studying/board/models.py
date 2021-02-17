@@ -11,8 +11,9 @@ class Board(models.Model):
     # 사용자가 탈퇴하면 사용자가 쓴모든글은 삭제 CASCADE
     writer = models.ForeignKey(
         'user.User', on_delete=models.CASCADE, verbose_name='작성자', null=True)
+    image = models.ImageField(upload_to='timeline_photo/%Y/%m', default='')
     # auto_now_add:현재시간을 자동으로 추가해주는것
-    registered_dttm = models.DateTimeField(
+    created_dttm = models.DateTimeField(
         auto_now_add=True, verbose_name='등록시간', null=True)
     subject = models.CharField(max_length=16, verbose_name='항목',
                                choices=(

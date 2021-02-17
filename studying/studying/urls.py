@@ -19,8 +19,8 @@ from user.views import index, LoginView, logout, RegisterView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
-    path('register/', RegisterView.as_view()),
-    path('login/', LoginView.as_view()),
-    path('logout/', logout),
+    path('user/register/', RegisterView.as_view()),
+    path('user/login/', LoginView.as_view()),
+    path('user/logout/', logout),
     path('board/', include('board.urls')),
 ]
