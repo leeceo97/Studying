@@ -21,7 +21,6 @@ class Board(models.Model):
                                    ('자격증', '자격증'),
                                    ('기타', '기타')
                                ), default='')
-
     def __str__(self):
         return self.title
 
@@ -31,3 +30,11 @@ class Board(models.Model):
         verbose_name = "스터딩 게시글"
         # plural은 뒤에 복수형으로 나오는걸 방지하기위한것
         verbose_name_plural = '스터딩 게시글'
+    
+class Comment(models.Model):
+    post = models.ForeignKey('board.Board', on_delete=models.CASCADE)
+    body = models.TextField(verbose_name='댓글', max_length=150, default='')
+    created_at = models.DateTimeField(auto_now=True)
+        
+    def __str__(self):
+        return self.body

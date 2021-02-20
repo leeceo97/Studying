@@ -3,6 +3,8 @@ from django.views.generic.edit import FormView
 from .forms import RegisterForm, LoginForm
 from django.contrib.auth.hashers import make_password
 from .models import User
+from django.utils.decorators import method_decorator
+from user.decorators import login_required
 # Create your views here.
 
 

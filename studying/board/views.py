@@ -6,7 +6,6 @@ from user.models import User
 from .forms import BoardForm
 # Create your views here.
 
-
 def board_detail(request, pk):
     try:
         board = Board.objects.get(pk=pk)
@@ -14,7 +13,6 @@ def board_detail(request, pk):
         raise Http404('게시글을 찾을 수 없습니다.')
 
     return render(request, 'board_detail.html', {'board': board})
-
 
 def board_write(request):
     if not request.session.get('user'):
@@ -39,7 +37,6 @@ def board_write(request):
         form = BoardForm()
     return render(request, 'board_write.html', {"form": form})
 
-
 def board_list(request):
     all_boards = Board.objects.all().order_by('-id')
     page = int(request.GET.get('p', 1))
@@ -47,3 +44,4 @@ def board_list(request):
 
     boards = paginator.get_page(page)
     return render(request, 'board_list.html', {'boards': boards})
+

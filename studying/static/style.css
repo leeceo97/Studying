@@ -151,3 +151,7 @@ ul {
   float: left;
   text-align: center;
 }
+
+.comment {
+  margin: 20px 0px 20px 20px;
+}

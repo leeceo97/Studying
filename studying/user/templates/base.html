@@ -22,9 +22,13 @@
       <a href="/"><img src="/static/imges/logo.png" alt="Studying" id="logo"></a>
       <nav id="nav">
         <ul id="list">
-          <li id="list-item"><a href="#">내 프로필</a></li>
+          {% if request.session.user %}
+          <li id="list-item"><a href="board/list/">내 프로필</a></li>
+          <li id="list-item"><a href="user/logout/">로그아웃</a></li>
+          
+          {% else %}
           <li id="list-item"><a href="user/login/">로그인</a></li>
-          <li id="list-item"><a href="user/register/">회원가입</a></li>
+          {% endif %}
         </ul>
       </nav>
     </div>

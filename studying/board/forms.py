@@ -1,5 +1,5 @@
 from django import forms
-
+from .models import Comment
 
 class BoardForm(forms.Form):
     title = forms.CharField(
@@ -18,3 +18,8 @@ class BoardForm(forms.Form):
         },
         label="이미지"
     )
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model=Comment
+        fields=('body',)

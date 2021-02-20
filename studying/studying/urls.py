@@ -17,10 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from user.views import index, LoginView, logout, RegisterView
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', index),
-    path('user/register/', RegisterView.as_view()),
-    path('user/login/', LoginView.as_view()),
-    path('user/logout/', logout),
+    path('admin/', admin.site.urls),
+    path('user/', include('user.urls')),
     path('board/', include('board.urls')),
 ]
