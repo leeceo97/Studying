@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="/static/style.css" />
   <link rel="stylesheet" href="/static/nomalize.css" />
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet" />
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
   <!-- 합쳐지고 최소화된 최신 CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <!-- 부가적인 테마 -->
@@ -23,11 +25,11 @@
       <nav id="nav">
         <ul id="list">
           {% if request.session.user %}
-          <li id="list-item"><a href="board/list/">내 프로필</a></li>
-          <li id="list-item"><a href="user/logout/">로그아웃</a></li>
+          <li id="list-item"><a onclick="location.href='/board/list/'">내 프로필</a></li>
+          <li id="list-item"><a onclick="location.href='/user/logout/'">로그아웃</a></li>
           
           {% else %}
-          <li id="list-item"><a href="user/login/">로그인</a></li>
+          <li id="list-item"><a onclick="location.href='/user/login/'">로그인</a></li>
           {% endif %}
         </ul>
       </nav>

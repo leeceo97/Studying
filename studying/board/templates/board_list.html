@@ -1,12 +1,12 @@
 {% extends "base.html" %}
-
+{% load humanize %}
 {% block contents %}
 
 <div class="row">
     {% for board in boards %}
     <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
-            <img src="{{ board.image }}" alt="..." onclick="location.href='/board/detail/{{ board.id }}'">
+            <img src="{{ board.image.path }}" alt="..." onclick="location.href='/board/detail/{{ board.id }}'">
             <div class="caption">
                 <h3 onclick="location.href='/board/detail/{{ board.id }}'">{{ board.title }}</h3>
                 <p onclick="location.href='/board/detail/{{ board.id }}'">{{ board.contents }}</p>
