@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from django.http import Http404
-from .models import Board
+from .models import Board, Photo
 from user.models import User
 from .forms import BoardForm
 from django.views.generic.list import ListView
@@ -31,12 +31,13 @@ def board_write(request):
             board.title = form.cleaned_data['title']
             board.contents = form.cleaned_data['contents']
             board.writer = user
-            try:
-                board.image = form.cleaned_data['image']
-            except:
-                pass
             board.save()
-
+            for img in request.FILES.getlist('imgs'):
+                photo = Photo()
+                photo.board = board
+                photo.image = img
+                photo.save()
+            
             return redirect('/board/list/')
     else:
         form = BoardForm()

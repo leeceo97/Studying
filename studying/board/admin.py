@@ -1,10 +1,12 @@
 from django.contrib import admin
-from .models import Board,Comment
+from .models import Board, Photo
+
 # Register your models here.
 
 
+class PhotoInline(admin.TabularInline):
+    model = Photo
 class BoardAdmin(admin.ModelAdmin):
-    list_display = ('title', 'subject')
+    inlines = [PhotoInline, ]
 
 admin.site.register(Board, BoardAdmin)
-admin.site.register(Comment)

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Comment
+
 
 
 class BoardForm(forms.Form):
@@ -15,8 +15,3 @@ class BoardForm(forms.Form):
         widget=forms.Textarea, label="내용")
     image = forms.ImageField(label="이미지")
 
-
-class CommentForm(forms.ModelForm):
-    class Meta:
-        model = Comment
-        fields = ('body',)

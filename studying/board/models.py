@@ -11,16 +11,10 @@ class Board(models.Model):
     # 사용자가 탈퇴하면 사용자가 쓴모든글은 삭제 CASCADE
     writer = models.ForeignKey(
         'user.User', on_delete=models.CASCADE, verbose_name='작성자', null=True)
-    image = models.ImageField(upload_to='timeline_photo/%Y/%m', default='')
     # auto_now_add:현재시간을 자동으로 추가해주는것
     created_dttm = models.DateTimeField(
         auto_now_add=True, verbose_name='등록시간', null=True)
-    subject = models.CharField(max_length=16, verbose_name='항목',
-                               choices=(
-                                   ('프로그래밍', '프로그래밍'),
-                                   ('자격증', '자격증'),
-                                   ('기타', '기타')
-                               ), default='')
+    
     def __str__(self):
         return self.title
 
@@ -31,10 +25,6 @@ class Board(models.Model):
         # plural은 뒤에 복수형으로 나오는걸 방지하기위한것
         verbose_name_plural = '스터딩 게시글'
     
-class Comment(models.Model):
-    post = models.ForeignKey('board.Board', on_delete=models.CASCADE)
-    body = models.TextField(verbose_name='댓글', max_length=150, default='')
-    created_at = models.DateTimeField(auto_now=True)
-        
-    def __str__(self):
-        return self.body
+class Photo(models.Model):
+    board = models.ForeignKey(Board, on_delete=models.CASCADE, null=True)
+    image = models.ImageField(upload_to='images/', blank=True,null=True)
